@@ -1,0 +1,8 @@
+ {
+ 	"server":"107.173.137.221",
+ 	"server_port":5234,
+ 	"local_port":1080,
+ 	"password":"guihua123",
+ 	"timeout":600,
+ 	"method":"aes-256-cfb"
+ }

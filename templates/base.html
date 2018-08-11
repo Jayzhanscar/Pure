@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+     {% block title %} {% endblock %}
+    <style>
+        .base-header{
+            height: 70px;
+            width: 100%;
+            box-shadow: 0px 5px 0px #f0f0f0;
+        }
+        .login{
+            float: right;
+            margin-top: 15px;
+            font-size: 25px;
+            margin-right: 15px;
+        }
+        .user{
+            float: right;
+            font-size: 25px;
+            margin-right: 15px;
+            line-height: 70px;
+        }
+    </style>
+{% block css %} {% endblock %}
+<link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.bootcss.com/mui/3.7.1/css/mui.css" rel="stylesheet">
+</head>
+<body style="background-color: white" >
+<div class="main"  >
+    <header class="base-header">
+          <a href="/">  <div style="float: left;margin-left: 10%;font-size: 25px;line-height: 70px;">首页</div></a>
+        <div class="login">
+            <a href="/material/login"><button type="button" class="mui-btn mui-btn-primary">登录</button></a>
+        </div>
+         <a href="/material/upload"><div class="user">
+
+        </div>
+             </a>
+    </header>
+    {% block body %} {% endblock %}
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
+<script src="/static/js/base.js" type="application/javascript"></script>
+{% block js %} {% endblock %}
+</body>
+</html>

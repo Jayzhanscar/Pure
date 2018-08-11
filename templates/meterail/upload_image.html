@@ -1,0 +1,63 @@
+ {% extends 'base.html' %}
+{% load static %}
+ {% block body %}
+
+     <ul class="mui-table-view" style="margin-top: 100px;">
+        <li class="mui-table-view-cell mui-collapse">
+            <a class="mui-navigate-right" href="#">功能1</a>
+            <div class="mui-collapse-content">
+                    <form class="mui-input-group" id="form_upload">
+                         <div class="mui-input-row">
+                             <label>标题</label>
+                             <input id="title" type="text" class="mui-input-clear"    placeholder="请输入标题">
+                         </div>
+                            <div class="mui-input-row">
+                         <label>文件</label>
+                         <input id="upload_file" type="file" class="mui-input-password" placeholder="请选择图片" value="请选择图片" name="file" onchange="imgPreview(this)" />
+                        </div>
+                    </form>
+            </div>
+        </li>
+     <li class="mui-table-view-cell mui-collapse">
+            <a class="mui-navigate-right" href="#">功能2</a>
+            <div class="mui-collapse-content">
+                <form class="mui-input-group" id="form_upload">
+                         <div class="mui-input-row">
+                             <label>标题</label>
+                             <input id="title1" type="text" class="mui-input-clear"    placeholder="请输入标题">
+                         </div>
+                            <div class="mui-input-row" style="height: 200px;">
+                         <label>内容</label>
+                                <textarea id="teat" style="height: 200px;" placeholder="内容"></textarea>
+                            </div>
+                        <button style="float: right">取消</button>
+                    <button onclick="ArticlePreview()" style="float: right">发表</button>
+                    </form>
+            </div>
+        </li>
+        <li class="mui-table-view-cell mui-collapse">
+            <a class="mui-navigate-right" href="#">功能3</a>
+            <div class="mui-collapse-content">
+                <form class="mui-input-group" id="form_upload">
+                         <div class="mui-input-row">
+                             <label>标题</label>
+                             <input id="title2" type="text" class="mui-input-clear"    placeholder="请输入标题">
+                         </div>
+                            <div class="mui-input-row" >
+                         <label>文件</label>
+                                <input id="upload_file" type="file" class="mui-input-password" placeholder="请选择视频"  name="file" onchange="VideoPreview(this)" />
+                            </div>
+                    </form>
+            </div>
+        </li>
+     <li class="mui-table-view-cell mui-collapse">
+            <a class="mui-navigate-right" href="#">功能4</a>
+            <div class="mui-collapse-content">
+                 个人设置
+            </div>
+        </li>
+    </ul>
+ {% endblock %}
+{% block js %}
+   <script src="{% static 'js/upload.js' %}"></script>
+{% endblock %}

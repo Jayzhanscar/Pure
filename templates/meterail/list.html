@@ -1,0 +1,61 @@
+ {% extends 'base.html' %}
+
+{% block css %}
+    <style>
+        .foot{
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+
+{% endblock %}
+ {%  block body%}
+     <div>
+        
+     </div>
+     <div >
+        <div style="margin-top: 100px;">
+        {% if type_get == 1 %}
+        <ul class="mui-table-view">
+            {% for i in topics %}
+                <li class="mui-table-view-cell">
+                <a class="mui-navigate-right" style="display: flex" href="/material/list/1?uid={{ i.iuid }}">
+                    <p>{{ i.user }}</p> <p style="margin-left: 30px;"> {{ i.titile | truncatewords:"15" }} </p><p style="float: right">  {{ i.create_time | date:"F j, Y" }}</p>
+                </a>
+                </li>
+            {% endfor %}
+        </ul>
+      {% elif type_get == 2 %}
+        <ul class="mui-table-view">
+            {% for i in topics %}
+                <li class="mui-table-view-cell">
+                <a class="mui-navigate-right" style="display: flex" href="/material/list/2?uid={{ i.vuid }}">
+                    <p>{{ i.user }}</p> <p style="margin-left: 30px;"> {{ i.titile | truncatewords:"15" }} </p><p style="float: right">  {{ i.create_time | date:"F j, Y" }}</p>
+                </a>
+                </li>
+            {% endfor %}
+        </ul>
+      {% elif type_get == 3 %}
+         <ul class="mui-table-view">
+                {% for i in topics %}
+                    <li class="mui-table-view-cell">
+                    <a class="mui-navigate-right" href="/material/list/3?uid={{ i.vuid }}">3</a>
+                    </li>
+                {% endfor %}
+            </ul>
+     {% endif %}
+      </div>
+     <p  class="foot">
+        {% if topics.has_previous %}
+            <a href="?page={{ topics.previous_page_number }}">上一页</a>
+            {% endif %}
+            {# topics.paginator.number_pages 返回总页数 #}
+            当前 {{ topics.number }} of {{ topics.paginator.num_pages }}.
+            {% if topics.has_next %}
+                <a href="?page={{ topics.next_page_number }}">下一页</a>
+        {% endif %}
+    </p >
+</div>
+
+
+ {% endblock %}

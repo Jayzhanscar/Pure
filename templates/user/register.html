@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title></title>
+    <style>
+        input{
+            height: 30px;
+            border: 1px solid #f0f0f0;
+            margin-top: 10px;
+        }
+    </style>
+    <link href="https://cdn.bootcss.com/mui/3.7.1/css/mui.css" rel="stylesheet">
+
+</head>
+<body>
+
+<form class="mui-input-group" style="margin-top: 100px;" id="login">
+    <div class="mui-input-row">
+        <label>用户名</label>
+    <input id="mobile-1" type="text" class="mui-input-clear" placeholder="请输入用户名">
+    </div>
+    <div class="mui-input-row">
+        <label>密码</label>
+        <input  id="password" type="password" class="mui-input-password" placeholder="请输入密码">
+    </div>
+    <div class="mui-button-row">
+        <button id="login" type="button" class="mui-btn mui-btn-primary" >登录</button>
+        <button  id="click_register" type="button" class="mui-btn mui-btn-danger" >注册</button>
+    </div>
+</form>
+
+
+<form class="mui-input-group" style="margin-top: 100px;display: none" id="register"  >
+    <div class="mui-input-row">
+        <label>用户名</label>
+    <input id="mobile-2" type="text" class="mui-input-clear" placeholder="请输入用户名">
+    </div>
+    <div class="mui-input-row">
+        <label>密码</label>
+        <input  id="password-1" type="password" class="mui-input-password" placeholder="请输入密码">
+    </div>
+     <div class="mui-input-row">
+        <label>确认密码</label>
+        <input  id="password-2" type="password" class="mui-input-password" placeholder="请输入密码">
+    </div>
+    <div class="mui-button-row">
+        <button id="check" type="button" class="mui-btn mui-btn-primary" >注册</button>
+        <button  id="back_login" type="button" class="mui-btn mui-btn-danger" >返回登录</button>
+    </div>
+</form>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
+ <script>
+ $('#click_register').click(function () {
+       $('#login').css('display', 'none');
+       $('#register').css('display', 'block')
+  });
+ $('#back_login').click(function () {
+       $('#login').css('display', 'block');
+       $('#register').css('display', 'none')
+ });
+$('#check').click(function () {
+    var counts = $('#mobile-2').val();
+    var passwd1 = $('#password-1').val();
+    var passwd2 = $('#password-2').val();
+    console.log(counts, passwd1, passwd2);
+    if(counts !='' & passwd1 == passwd2){
+        $.ajax({
+                type: 'POST',
+                 url:'/user/register',
+                 data:{
+                    mobile: counts,
+                     password :  passwd1
+                 },
+                 success:function (res) {
+
+                    console.log(res);
+                     mui.alert('注册成功')
+                 }
+             });
+    }
+    else{
+        alert('输入有误，请重新输入')
+    }
+});
+$('#login').click(function () {
+    var mobile = $('#mobile-1').val();
+    var password = $('#password').val();
+    if (mobile != '' || password != ''){
+        $.ajax({
+                type: 'POST',
+                 url:'/user/login',
+                 data:{
+                    mobile: mobile,
+                     password :  password
+                 },
+                 success:function (res) {
+                    console.log(res);
+                     if(res['detail'] == 'ok'){
+                         mui.alert('登录成功');
+                         window.location.href = '/'
+                     }
+                     else{
+                         mui.alert('登录错误，请重新输入')
+                     }
+                 }
+             });
+    }
+    else{
+        mui.alert('输入有误，请重新输入')
+    }
+})
+</script>
+
+</body>
+</html>

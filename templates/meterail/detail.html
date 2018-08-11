@@ -1,0 +1,36 @@
+ {% extends 'base.html' %}
+{% load static %}
+
+
+ {% block body %}
+     {% for i in objs %}
+          <div class="mui-card">
+	        <!--页眉，放置标题-->
+	        <div class="mui-card-header">
+                {% if type_get == 1 or type_get == 2 %}
+                 {{ i.titile }}
+                {% elif type_get == 3 %}
+                  {{ i.title }}
+                {% endif %}
+                <div>{{ i.user }}</div>
+
+            </div>
+	        <!--内容区-->
+	        <div class="mui-card-content">
+                {% if type_get == 1 %}
+                    <img src="/{{ i.path }}"/>
+                {% elif type_get == 2 %}
+                 <video autoplay="true"   src="/{{ i.path }}"></video>
+                {% elif type_get == 3 %}
+                   <div>{{ i.content }}</div>
+                {% endif %}
+            </div>
+	            <!--页脚，放置补充信息或支持的操作-->
+              <div class="mui-card-footer">
+                  <div>{{ i.create_time }}</div>
+              </div>
+        </div>
+
+     {%  endfor %}
+
+ {% endblock %}
