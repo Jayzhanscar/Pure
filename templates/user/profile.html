@@ -13,6 +13,8 @@
             width: 100%;
             height: auto;
             margin-top: 30px;
+            color: black;
+             border-radius: 25px;
 
         }
         .model-li{
@@ -35,32 +37,37 @@
           border: 1px solid #f0f0f0;
           text-align: center;
           line-height: 100px;
+          font-size: 25px;
       }
+     .oder{
+         height: 30px;
+         color: black;
+         line-height: 40px;
+         margin-top: 10px;
+         display: flex;
+     }
      </style>
  {% endblock %}
 {% block body %}
     <div class="mui-slider" style="height: 150px;overflow: hidden">
         <div class="mui-slider-group">
-        <div class="mui-slider-item"><a href="#"><img src="{% static 'img/600757.jpg' %}" /></a></div>
-        <div class="mui-slider-item"><a href="#"><img src="{% static 'img/600757.jpg' %}" /></a></div>
-        <div class="mui-slider-item"><a href="#"><img src="{% static 'img/600757.jpg' %}" /></a></div>
-        <div class="mui-slider-item"><a href="#"><img src="{% static 'img/600757.jpg' %}" /></a></div>
-    </div>
-    </div>
-    <!---00
-    <div class="model">
-        <div class="model-li"> 1</div>
-        <div class="model-li"> 2</div>
-        <div class="model-li">3</div>
-        <div class="model-li">4</div>
+            <div class="mui-slider-item"><a href="#"><img src="{% static 'img/600757.jpg' %}" /></a></div>
+            <div class="mui-slider-item"><a href="#"><img src="{% static 'img/600757.jpg' %}" /></a></div>
+            <div class="mui-slider-item"><a href="#"><img src="{% static 'img/600757.jpg' %}" /></a></div>
+            <div class="mui-slider-item"><a href="#"><img src="{% static 'img/600757.jpg' %}" /></a></div>
+        </div>
+
 
     </div>
-    -->
-     <div style="margin-top: 50px;border-top: 2px solid #f0f0f0">
-       <a href="/material/detail/1?page=1"><div class="model" >内容一<span class="mui-badge">33</span></div></a>
-       <a href="/material/detail/2?page=1"><div class="model">内容二<span class="mui-badge">33</span></div></a>
-        <a href="/material/detail/3?page=1"><div class="model">内容三<span class="mui-badge">33</span></div></a>
-       <a href="/material/detail/1?page=1" ><div class="model">内容四<span class="mui-badge">33</span></div></a>
+
+    <div class="oder"><div class="mui-icon mui-icon-chatboxes" style="margin-top: 5px;"></div><div style="line-height: 40px;">公告栏:</div> <marquee width=250   direction=left align=middle>弹来弹去跑马灯!</marquee></div>
+     <div style="margin-top: 0px;border-top: 2px solid #f0f0f0">
+       <a href="/material/detail/1?page=1"><div class="model" >内容一<span class="mui-badge mui-badge-warning">{{ img_num }}</span></div></a>
+       <a href="/material/detail/2?page=1"><div class="model">内容二<span class="mui-badge mui-badge-warning">{{ video_num }}</span></div></a>
+        <a href="/material/detail/3?page=1"><div class="model">内容三<span class="mui-badge mui-badge-warning">{{ art_num }}</span></div></a>
+       <a href="/material/detail/1?page=1" ><div class="model">内容四<span class="mui-badge mui-badge-warning">33</span></div></a>
      </div>
+
+
 
 {% endblock %}

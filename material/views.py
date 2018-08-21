@@ -83,7 +83,6 @@ class ArticleGet(APIView):
 	def post(self, request, *args, **kwargs):
 		""" 发表文章 """
 		uuid = request.COOKIES['uuid']
-		print('okok', request.data['title'], request.data['content'])
 		user = MyUser.objects.filter(uuid=uuid)[0]
 		art = Article()
 		art.titile = request.data['title']
@@ -134,26 +133,19 @@ def get_posts(request, type_get):
 		topics = paginator.page(1)  # 取第一页的记录
 	except EmptyPage:  # 如果页码太大，没有相应的记录
 		topics = paginator.page(paginator.num_pages)  # 取最后一页的记录
-
-	for i in topics:
-		print(i.titile)
-
 	return render(request, 'meterail/list.html', locals())
 
 
 def detail(request, type_get):
 	uid = request.GET.get('uid', '')
-	print(type_get, uid)
 	type_get = int(type_get)
 	objs = ''
 	if int(type_get) == 1:
-		print('plplplp')
 		objs = Image.objects.filter(iuid=uid)
 	elif int(type_get) == 2:
 		objs = Video.objects.filter(vuid=uid)
 	elif int(type_get) == 3:
 		objs = Article.objects.filter(vuid=uid)
-	print(objs)
 	return render(request, 'meterail/detail.html', locals())
 
 

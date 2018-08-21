@@ -1,8 +1,9 @@
 /**
  * Created by zhanlingjie on 2018/8/7.
  */
+
+
  var x = document.cookie;
- console.log(x, typeof x);
 
  if(getCookie('uuid') != '' & getCookie('_puremach')!= ''){
      console.log(getCookie('uuid'),'okoko');
@@ -14,10 +15,9 @@
                  },
                  success:function (res) {
                     $('.login').css('display', 'none');
-                    console.log(res);
                     if(res.name){
 
-                        $('.user').append(res.name)
+                        $('.user').append(res.name+"<span class='mui-icon mui-icon-arrowdown'></span>")
                     }
                     else{
 
