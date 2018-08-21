@@ -23,6 +23,22 @@
             margin-right: 15px;
             line-height: 70px;
         }
+        a{
+            color: black;
+        }
+        .tar{
+            height: 40px;
+            color: white;
+            background-color: black;
+            line-height: 40px;
+            font-size: 18px;
+            display: flex;
+            list-style: none;
+        }
+        .tar-li{
+            width: 30%;
+            text-align: center;
+        }
     </style>
 {% block css %} {% endblock %}
 <link href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -31,17 +47,25 @@
 <body style="background-color: white" >
 <div class="main"  >
     <header class="base-header">
-          <a href="/">  <div style="float: left;margin-left: 10%;font-size: 25px;line-height: 70px;">首页</div></a>
+          <a href="/">  <div style="float: left;margin-left: 10%;font-size: 25px;line-height: 70px;color: black;">纯粹首页</div></a>
         <div class="login">
             <a href="/material/login"><button type="button" class="mui-btn mui-btn-primary">登录</button></a>
         </div>
-         <a href="/material/upload"><div class="user">
+         <a href="/material/upload"><div class="user " style="font-size: 16px; color: black">
+             <span class="mui-icon mui-icon-contact"></span>
 
         </div>
              </a>
     </header>
+    <ul class="tar">
+        <li class="tar-li"> <a style="color: white" href="/material/detail/1?page=1">内容1</a> </li>
+        <li class="tar-li"> <a style="color: white" href="/material/detail/2?page=1">内容2</a> </li>
+        <li class="tar-li"> <a style="color: white" href="/material/detail/3?page=1">内容3</a> </li>
+
+    </ul>
     {% block body %} {% endblock %}
 </div>
+
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.min.js"></script>
 <script src="/static/js/base.js" type="application/javascript"></script>

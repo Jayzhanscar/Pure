@@ -13,6 +13,7 @@ from Pure import settings
 from .models import MyUser
 from django.core.cache import cache
 from django.views.decorators.csrf import csrf_exempt
+from material.models import *
 
 
 # Create your views here.
@@ -80,7 +81,10 @@ class UserInfo(APIView):
 
 
 def index(request):
-	return render(request, 'user/profile.html')
+	img_num = Image.objects.all().count()
+	video_num = Video.objects.all().count()
+	art_num = Article.objects.all().count()
+	return render(request, 'user/profile.html', locals())
 
 
 def profile(request):
